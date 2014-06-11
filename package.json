@@ -1,6 +1,6 @@
 {
   "name": "nodeapps-helloworld",
-  "version": "0.2.2",
+  "version": "0.2.2-2",
   "author": {
     "name": "Nodejitsu Inc.",
     "email": "support@nodejitsu.com"
@@ -15,22 +15,14 @@
     "nodeapps",
     "helloworld"
   ],
-  "homepage": "http://nodeapps.github.com/helloworld",
+  "homepage": "https://github.com/theConscience/server",
   "scripts": {
-    "start": "node ./bin/server"
+    "start": "node ./bin/index"
   },
   "contributors": [
     {
-      "name": "Marak Squires",
-      "email": "marak.squires@gmail.com"
-    },
-    {
-      "name": "Joshua Holbrook",
-      "email": "josh.holbrook@gmail.com"
-    },
-    {
-      "name": "Farrin Reid",
-      "email": "blakmatrix@gmail.com"
+      "name": "VK",
+      "email": "vinton@nextmail.ru"
     }
   ],
   "dependencies": {},
