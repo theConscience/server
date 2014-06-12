@@ -1,12 +1,12 @@
 {
-  "name": "nodeapps-helloworld",
-  "version": "0.2.2-2",
+  "name": "vinton-server-helloworld",
+  "version": "0.2.2-3",
   "author": {
     "name": "Nodejitsu Inc.",
     "email": "support@nodejitsu.com"
   },
   "description": "A very basic node.js helloworld application",
-  "main": "",
+  "main": "index",
   "repository": {
     "type": "git",
     "url": "git://github.com/nodeapps/helloworld.git"
