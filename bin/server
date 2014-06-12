@@ -15,7 +15,7 @@ function start() {
 	function onRequest (req, res) {
 	  numreq +=1
 	  res.writeHead(200, {'Content-Type': 'text/plain'});
-	  res.write('hello, I know nodejitsu! OLOLO');
+	  res.write('hello, I know nodejitsu! OLOLO\n');
 	  res.write('request recieved '+ numreq + ' times');
 	  res.end();
 	}
