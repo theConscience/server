@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var http = require('http'),
-    urlroute = require('url');
+    urlroute = require('url'),
     port = 8080,
     numreq = 0,
     url = 'http://localhost:' + port + '/';
@@ -14,21 +14,15 @@ if(process.env.SUBDOMAIN){
 
 
 function serve(route, handle) {
-	function onRequest (req, res) {
+	function onRequest(req, res) {
 		var pathname = urlroute.parse(req.url).pathname
 		numreq +=1
 		console.log('request recieved ' + numreq + "times!\n");
 		console.log("request for " + pathname + " received.");
-		
-		route(handle, pathname);
-
-		res.writeHead(200, {'Content-Type': 'text/plain'});
-		res.write('hello, I know nodejitsu! OLOLO\n');
-		res.write('request for ' + pathname + ', request recieved '+ numreq + ' times\n');
-		res.end();
+		route(handle, pathname, res);
 	}
 	http.createServer(onRequest).listen(port);
-	console.log('The http server has started at: ' + url);
+	console.log('\nThe http server has started at: ' + url + '\n');
 }
 
 exports.serve = serve;

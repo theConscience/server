@@ -1,9 +1,19 @@
-function start() {
-	console.log("Request handler 'start' was called.");
+function start(res, pathname) {
+	console.log("Request handler 'start' was called.\n");
+
+		res.writeHead(200, {'Content-Type': 'text/plain'});
+		res.write('hello, I know Starting nodejitsu! OLOLO\n');
+		res.write('request for ' + pathname);
+		res.end();
 }
 
-function upload() {
-	console.log("Request handler 'upload' was called.");
+function upload(res, pathname) {
+	console.log("Request handler 'upload' was called.\n");
+	
+	res.writeHead(200, {'Content-Type': 'text/plain'});
+	res.write('hello, I am Uploading nodejitsu!\n');
+	res.write('request for ' + pathname);
+	res.end();
 }
 
 
