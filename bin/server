@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 var http = require('http'),
+    urlroute = require('url');
     port = 8080,
     numreq = 0,
     url = 'http://localhost:' + port + '/';
@@ -9,19 +10,25 @@ var http = require('http'),
 if(process.env.SUBDOMAIN){
   url = 'http://' + process.env.SUBDOMAIN + '.jit.su/';
 }
-	
 
-function start() {
+
+
+function serve(route, handle) {
 	function onRequest (req, res) {
-	  numreq +=1
-	  console.log('request recieved ' + numreq + "times!");
-	  res.writeHead(200, {'Content-Type': 'text/plain'});
-	  res.write('hello, I know nodejitsu! OLOLO\n');
-	  res.write('request recieved '+ numreq + ' times');
-	  res.end();
+		var pathname = urlroute.parse(req.url).pathname
+		numreq +=1
+		console.log('request recieved ' + numreq + "times!\n");
+		console.log("request for " + pathname + " received.");
+		
+		route(handle, pathname);
+
+		res.writeHead(200, {'Content-Type': 'text/plain'});
+		res.write('hello, I know nodejitsu! OLOLO\n');
+		res.write('request for ' + pathname + ', request recieved '+ numreq + ' times\n');
+		res.end();
 	}
 	http.createServer(onRequest).listen(port);
 	console.log('The http server has started at: ' + url);
 }
 
-exports.start = start;
+exports.serve = serve;
