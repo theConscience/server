@@ -1,6 +1,6 @@
 {
   "name": "vinton-server-helloworld",
-  "version": "0.2.2-18",
+  "version": "0.2.2-20",
   "author": {
     "name": "Nodejitsu Inc.",
     "email": "support@nodejitsu.com"
@@ -25,7 +25,9 @@
       "email": "vinton@nextmail.ru"
     }
   ],
-  "dependencies": {},
+  "dependencies": {
+    "formidable": "1.0.14"
+  },
   "devDependencies": {},
   "engines": {
     "node": ">=0.4"
