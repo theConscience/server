@@ -15,11 +15,22 @@ if(process.env.SUBDOMAIN){
 
 function serve(route, handle) {
 	function onRequest(req, res) {
+		var postData = ""; 
 		var pathname = urlroute.parse(req.url).pathname
 		numreq +=1
 		console.log('request recieved ' + numreq + "times!\n");
 		console.log("request for " + pathname + " received.");
-		route(handle, pathname, res);
+		
+		req.setEncoding("utf8");
+
+		req.addListener("data", function(postDataChunk){
+			postData +=postDataChunk
+			console.log("Received POST data chunk '" + postDataChunk + "'.");
+		});
+
+		req.addListener("end", function() {
+			route(handle, pathname, res, postData);
+		})
 	}
 	http.createServer(onRequest).listen(port);
 	console.log('\nThe http server has started at: ' + url + '\n');
