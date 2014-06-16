@@ -3,11 +3,16 @@ var router = require("./router");
 var requestHandlers = require("./requesthandlers");
 
 var handle = {};
-handle["/"] = requestHandlers.start;
-handle["/start"] = requestHandlers.start;
+handle["/"] = requestHandlers.webdevelopment;
+handle["/uploader"] = requestHandlers.uploader;
 handle["/upload"] = requestHandlers.upload;
 handle["/submtext"] = requestHandlers.submtext;
-handle["/show"] = requestHandlers.show;
+handle["/gallery"] = requestHandlers.gallery;
+
+handle["/webdevelopment"] = requestHandlers.webdevelopment;
+handle["/pageproofs"] = requestHandlers.pageproofs;
+handle["/programs"] = requestHandlers.programs;
+handle["/webapps"] = requestHandlers.webapps;
 
 
 server.serve(router.route, handle);

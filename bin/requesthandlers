@@ -2,9 +2,10 @@
 var querystring = require("querystring"),
 	exec = require("child_process").exec, 
 	fs = require('fs'),
-	formidable = require("formidable");
+	formidable = require("formidable"),
+	ejs = require("ejs");
 
-
+/*
 //index.html page import
 var page = "";
 		fs.readFile('index.html', {encoding: 'utf-8'}, function(err, data) {
@@ -16,9 +17,24 @@ var page = "";
 			}
 		});
 console.log(page);
+*/
+
+
+//загружаем базовый шаблон страницы
+var template = fs.readFileSync('./templates/structure.ejs', {encoding: 'utf-8'}, function(err, data) {
+	if(err) {
+		console.error(err);
+		return  err;
+	} else {
+		return data;
+	}
+});
+console.log(' template = \n' + template +'\n');
+
+
 
 //загрузка главной страницы
-function start( pathname, res, req ) {
+function uploader( pathname, res, req ) {
 	exec("", function(error, stdout, stderr){
 		console.log("Request handler 'start' was called.\n");
 		
@@ -47,8 +63,95 @@ function start( pathname, res, req ) {
 	});
 }
 
-//загрузка текста
 
+// раздел: web-разработка
+function webdevelopment( pathname, res, req ) {
+	exec("", function(error, stdout, stderr){
+		/*
+		// Load the specified template.
+		var tmpl = fs.readFileSync("template.ejs", "utf-8");
+
+		// Render the template using the specified data.
+		var output = ejs.render(tmpl, {title:"Bub"});
+
+		console.log(output);
+		*/
+
+		console.log("Request handler 'webdevelopment' was called.\n");
+		
+		var webdev = fs.readFileSync('webdev.html', {encoding: 'utf-8'}, function(err, data) {
+			if(err) {
+				console.error(err);
+				return err;
+			} else {
+				return data;
+			}
+		});
+		
+		var menu = fs.readFileSync('menu.html', {encoding: 'utf-8'}, function(err, data) {
+			if(err) {
+				console.error(err);
+				return err;
+			} else {
+				return data;
+			}
+		});
+
+		console.log(' webdev = ' + webdev +'\n');
+		console.log(' menu = ' + menu+'\n');
+
+		var body = ejs.render(template, {topmenu: menu, content: webdev });
+		
+		console.log('body = '+ body + " \n");
+
+		res.writeHead(200, {'Content-Type': 'text/html'});
+		res.write(body);
+		res.end();
+	});	
+}
+
+/*
+// раздел: web-разработка/вёрстка
+function pageproofs() {
+	exec("", function(error, stdout, stderr){
+		console.log("Request handler 'pageproofs' was called.\n");
+		
+		var body =
+
+		res.writeHead(200, {'Content-Type': 'text/html'});
+		res.write(body);
+		res.end();
+	});
+}
+
+// раздел: web-разработка/программы [JS]
+function programs() {
+	exec("", function(error, stdout, stderr){
+		console.log("Request handler 'programs' was called.\n");
+		
+		var body =
+
+		res.writeHead(200, {'Content-Type': 'text/html'});
+		res.write(body);
+		res.end();
+	});
+}
+
+// раздел: web-разработка/приложения [Html+Css+JS]
+function webapps() {
+	exec("", function(error, stdout, stderr){
+		console.log("Request handler 'webapps' was called.\n");
+		
+		var body =
+
+		res.writeHead(200, {'Content-Type': 'text/html'});
+		res.write(body);
+		res.end();
+	});
+}
+*/
+
+//загрузка текста
 function submtext( pathname, res, req ) {
 		console.log("Request handler 'submtext' was called.\n");
 		var postData = "";
@@ -79,7 +182,6 @@ function submtext( pathname, res, req ) {
 
 
 //загрузка файлов
-
 function upload( pathname, res, req ) {
 	console.log("Request handler 'upload' was called.\n");
 	
@@ -96,14 +198,14 @@ function upload( pathname, res, req ) {
 		});
 		res.writeHead(200, {'Content-Type': 'text/html'});
 		res.write('Received image:<br/>');
-		res.write('<img src="/show">');
+		res.write('<img src="/gallery">');
 		res.end();
 	});
 }
 
 
 //отображение содержимого папки /tmp
-function show( pathname, res, req ) {
+function gallery( pathname, res, req ) {
 	console.log("Request handler 'show' was called.");
 	
 	fs.readFile("./tmp/test.jpg", "binary", function(error, file) {
@@ -119,7 +221,11 @@ function show( pathname, res, req ) {
 	});
 }
 
-exports.start = start;
+exports.uploader = uploader;
+exports.webdevelopment = webdevelopment;
+//exports.pageproofs = pageproofs;
+//exports.programs = programs;
+//exports.webapps = webapps;
 exports.submtext = submtext;
 exports.upload = upload;
-exports.show = show;
+exports.gallery = gallery;

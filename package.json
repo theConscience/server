@@ -26,7 +26,8 @@
     }
   ],
   "dependencies": {
-    "formidable": "1.0.14"
+    "formidable": ">=1.0.14",
+    "ejs": ">=1.0.0"
   },
   "devDependencies": {},
   "engines": {
