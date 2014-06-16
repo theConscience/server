@@ -18,7 +18,7 @@ var page = "";
 console.log(page);
 
 //загрузка главной страницы
-function start(res) {
+function start( res ) {
 	exec("", function(error, stdout, stderr){
 		console.log("Request handler 'start' was called.\n");
 		
@@ -48,18 +48,33 @@ function start(res) {
 }
 
 //загрузка текста
-function submtext(res, pathname, postData) {
-	console.log("Request handler 'submtext' was called.\n");
-	res.writeHead(200, {'Content-Type': 'text/plain'});
-	res.write('Hello, I can upload text!\n');
-	res.write('Request for ' + pathname + ' received!\nYou have sent the text: ' + querystring.parse(postData).text);
-	res.end();
+function submtext( pathname, res, req ) {
+		console.log("Request handler 'submtext' was called.\n");
+		var postData = "";
+		
+		var obj1 = new function(res) {
+			res.writeHead(200, {'Content-Type': 'text/plain'});
+			res.write('Hello, I can upload text!\n');
+			res.write('Request for ' + pathname + ' received!\nYou have sent the text: ' + querystring.parse(postData).text);
+			res.end();
+		}
+
+		req.setEncoding("utf8");
+
+		req.addListener("data", function(postDataChunk){
+			postData +=postDataChunk
+			console.log("Received POST data chunk '" + postDataChunk + "'.");
+		});
+
+		req.addListener("end", obj1(res) );
 }
 
 //загрузка файлов
-function upload(res, pathname, postData) {
+function upload( pathname, res, req ) {
 	console.log("Request handler 'upload' was called.\n");
 	
+
+
 	res.writeHead(200, {'Content-Type': 'text/plain'});
 	res.write('Hello, I can do Uploading!\n');
 	res.write('Request for ' + pathname + ' received!\nYou have sent the text: ' + querystring.parse(postData).text);
@@ -68,8 +83,9 @@ function upload(res, pathname, postData) {
 
 
 //отображение содержимого папки /tmp
-function show(res, postData){
+function show( res ) {
 	console.log("Request handler 'show' was called.");
+	
 	fs.readFile("./tmp/test.jpg", "binary", function(err, file) {
 		if(err) {
 			res.writeHead(500, {"Content-Type": "text/plain"});
