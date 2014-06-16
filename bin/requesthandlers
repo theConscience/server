@@ -48,17 +48,19 @@ function start( pathname, res, req ) {
 }
 
 //загрузка текста
-/*
+
 function submtext( pathname, res, req ) {
 		console.log("Request handler 'submtext' was called.\n");
 		var postData = "";
 		
+		/*
 		var obj1 = new function(res) {
 			res.writeHead(200, {'Content-Type': 'text/plain'});
 			res.write('Hello, I can upload text!\n');
 			res.write('Request for ' + pathname + ' received!\nYou have sent the text: ' + querystring.parse(postData).text);
 			res.end();
 		}
+		*/
 
 		req.setEncoding("utf8");
 
@@ -67,11 +69,17 @@ function submtext( pathname, res, req ) {
 			console.log("Received POST data chunk '" + postDataChunk + "'.");
 		});
 
-		req.addListener("end", obj1(res) );
+		req.addListener("end", function() {
+			res.writeHead(200, {'Content-Type': 'text/plain'});
+			res.write('Hello, I can upload text!\n');
+			res.write('Request for ' + pathname + ' received!\nYou have sent the text: ' + querystring.parse(postData).text);
+			res.end();
+		});
 }
-*/
+
 
 //загрузка файлов
+
 function upload( pathname, res, req ) {
 	console.log("Request handler 'upload' was called.\n");
 	
@@ -93,6 +101,7 @@ function upload( pathname, res, req ) {
 	});
 }
 
+
 //отображение содержимого папки /tmp
 function show( pathname, res, req ) {
 	console.log("Request handler 'show' was called.");
@@ -111,6 +120,6 @@ function show( pathname, res, req ) {
 }
 
 exports.start = start;
-//exports.submtext = submtext;
+exports.submtext = submtext;
 exports.upload = upload;
 exports.show = show;
