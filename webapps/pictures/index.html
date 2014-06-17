@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Переключаемые картинки</title>
+	<link rel="stylesheet" href="/webapps/pictures/css/pictures.css">
+	<style>
+		.wraper {
+			background: #000 url(/webapps/pictures/img/river.jpg) 0 0 no-repeat;
+		}
+	</style>
+	<link rel="javascript" href="/webapps/pictures/js/game.js">
+	<script>
+// Check if the user is ready to play!
+confirm("Are you ready to play?");
+age = prompt("What's your age, User");
+if(age<13) {
+console.log("You are not authorised to enter this page");
+} else {
+console.log("You will be in the game in 3...2...1....");
+}
+
+console.log("You are at a Justin Bieber concert, and you hear this lyric 'Lace my shoes off, start racing.'");
+
+console.log("Suddenly, Bieber stops and says, 'Who wants to race me?'");
+
+userAnswer = prompt("Do you want to race Bieber on stage?");
+
+if(userAnswer === "yes") {
+console.log("You and Bieber start racing. It's neck and neck! You win by a shoelace!")}  else { console.log("Oh no! Bieber shakes his head and sings 'I set a pace, so I can race without pacing.'")}
+var feedback
+feedback = prompt("Please, rate my funny game!!!");
+if (feedback >= 8) {console.log("Thank you! We should race at the next concert!")} else {console.log("I'll keep practicing coding and racing.")}
+
+	</script>
+</head>
+<body>
+	<div class="wraper">
+		<ul>
+			<li class="selected"><a href="#"></a></li>
+			<li class="item"><a href="/webapps/pictures/pic2.html"></a></li>
+			<li class="item"><a href="/webapps/pictures/pic3.html"></a></li>
+			<li class="item"><a href="/webapps/pictures/pic4.html"></a></li>
+			<li class="item"><a href="/webapps/pictures/pic5.html"></a></li>
+		</ul>
+	</div>
+</body>
+</html>

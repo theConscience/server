@@ -1,0 +1,60 @@
+body {
+	padding: 10px;
+	margin: 10px;
+}
+.wraper {
+	margin: auto;
+	padding: 0px;
+	width: 600px;
+	height: 380px;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+	position: relative;
+	top:355px;
+	left:250px;
+	list-style: none;
+}
+
+.item {	
+	padding: 0;
+	margin: 0 5px 0 0;
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	border-radius: 15px;
+	border: 0px solid #000;
+	background: radial-gradient(circle at center, #000 45%, #fff 55%);
+	
+}
+
+a {
+	width: 10px;
+	height: 10px;
+	text-decoration: none;
+	color:white;
+	display: block;
+}
+
+.selected {
+	display: inline-block;
+	position: relative;
+	top: 0px;
+	left: 0px;
+	width: 14px;
+	height: 14px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-o-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	padding: 0;	
+	margin: 0 5px 0 0;
+	background: radial-gradient(circle at center, #D20A11 45%, #fff 55%);
+	box-shadow: 0 0 6px 3px white;
+}
+
+.selected a {
+	cursor: default;
+}

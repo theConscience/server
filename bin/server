@@ -113,6 +113,159 @@ function handleProjects(pathName, res) {
 	            });
 	            console.log('.jpg file of Project is routed\n');
 	        break;
+	        case '.otf':
+	            res.writeHead(200, {"Content-Type": "application/font-sfnt"});
+	            fs.readFile( './pageproofs/' + pathName.substr(pathName.indexOf('oofs/')+5), 'utf8', function(err, data) {
+	            	if(err) {
+						console.error(err);
+						res.end(err);
+					} else {
+				        res.end(data);
+				    }
+	            });
+	            console.log('.otf file of Project is routed\n');
+	        break;
+	        case '.ttf':
+	            res.writeHead(200, {"Content-Type": "application/font-sfnt"});
+	            fs.readFile( './pageproofs/' + pathName.substr(pathName.indexOf('oofs/')+5), 'utf8', function(err, data) {
+	            	if(err) {
+						console.error(err);
+						res.end(err);
+					} else {
+				        res.end(data);
+				    }
+	            });
+	            console.log('.ttf file of Project is routed\n');
+	        break;
+	        case '.eot':
+	            res.writeHead(200, {"Content-Type": "application/vnd.ms-fontobject"});
+	            fs.readFile( './pageproofs/' + pathName.substr(pathName.indexOf('oofs/')+5), 'utf8', function(err, data) {
+	            	if(err) {
+						console.error(err);
+						res.end(err);
+					} else {
+				        res.end(data);
+				    }
+	            });
+	            console.log('.eot file of Project is routed\n');
+	        break;
+	        case '.eot':
+	            res.writeHead(200, {"Content-Type": "application/font-woff"});
+	            fs.readFile( './pageproofs/' + pathName.substr(pathName.indexOf('oofs/')+5), 'utf8', function(err, data) {
+	            	if(err) {
+						console.error(err);
+						res.end(err);
+					} else {
+				        res.end(data);
+				    }
+	            });
+	            console.log('.eot file of Project is routed\n');
+	        break;
+	    }
+}
+/////////////////////////////////////////////////////
+
+function handleWebApps(pathName, res) {
+	var ext = path.extname(pathName);
+    console.log('handleWebApps function is working.... on ' + ext);
+	    switch(ext) {
+	        case '.css':
+	            res.writeHead(200, {"Content-Type": "text/css"});
+	            fs.readFile( './webapps/' + pathName.substr(pathName.indexOf('bapps/')+6), 'utf8', function(err, data) {
+	                if(err) {
+						console.error(err);
+						res.end(err);
+					} else {
+				        res.end(data);
+				    }
+	            });
+	            console.log('.css file of Project is routed\n');
+	        break;
+	        case '.js':
+	            res.writeHead(200, {"Content-Type": "text/javascript"});
+	            fs.readFile( './webapps/' + pathName.substr(pathName.indexOf('bapps/')+6), 'utf8', function(err, data) {
+	                if(err) {
+						console.error(err);
+						res.end(err);
+					} else {
+				        res.end(data);
+				    }
+	            });
+	            console.log('.js file of Project is routed\n');
+	        break;
+	        case '.html':
+	            res.writeHead(200, {"Content-Type": "text/html"});
+	            fs.readFile( './webapps/' + pathName.substr(pathName.indexOf('bapps/')+6), 'utf8', function(err, data) {
+	            	if(err) {
+						console.error(err);
+						res.end(err);
+					} else {
+				        res.end(data);
+				    }
+	            });
+	            console.log('.html file of Project is routed\n');
+	        break;
+	        case '.jpg':
+	            res.writeHead(200, {"Content-Type": "image/jpg"});
+	            fs.readFile( './webapps/' + pathName.substr(pathName.indexOf('bapps/')+6), 'binary', function(err, file) {
+	            	if(err) {
+						console.error(err);
+						res.end(err);
+					} else {
+						res.write(file, "binary");
+				        res.end();
+				    }
+	            });
+	            console.log('.jpg file of Project is routed\n');
+	        break;
+	        case '.otf':
+	            res.writeHead(200, {"Content-Type": "application/font-sfnt"});
+	            fs.readFile( './webapps/' + pathName.substr(pathName.indexOf('bapps/')+6), 'utf8', function(err, data) {
+	            	if(err) {
+						console.error(err);
+						res.end(err);
+					} else {
+				        res.end(data);
+				    }
+	            });
+	            console.log('.otf file of Project is routed\n');
+	        break;
+	        case '.ttf':
+	            res.writeHead(200, {"Content-Type": "application/font-sfnt"});
+	            fs.readFile( './webapps/' + pathName.substr(pathName.indexOf('bapps/')+6), 'utf8', function(err, data) {
+	            	if(err) {
+						console.error(err);
+						res.end(err);
+					} else {
+				        res.end(data);
+				    }
+	            });
+	            console.log('.ttf file of Project is routed\n');
+	        break;
+	        case '.eot':
+	            res.writeHead(200, {"Content-Type": "application/vnd.ms-fontobject"});
+	            fs.readFile( './webapps/' + pathName.substr(pathName.indexOf('bapps/')+6), 'utf8', function(err, data) {
+	            	if(err) {
+						console.error(err);
+						res.end(err);
+					} else {
+				        res.end(data);
+				    }
+	            });
+	            console.log('.eot file of Project is routed\n');
+	        break;
+	        case '.eot':
+	            res.writeHead(200, {"Content-Type": "application/font-woff"});
+	            fs.readFile( './webapps/' + pathName.substr(pathName.indexOf('bapps/')+6), 'utf8', function(err, data) {
+	            	if(err) {
+						console.error(err);
+						res.end(err);
+					} else {
+				        res.end(data);
+				    }
+	            });
+	            console.log('.eot file of Project is routed\n');
+	        break;
 	    }
 }
 
@@ -139,6 +292,8 @@ function serve(route, handle) {
 */
 		if(pathname.indexOf('/pageproofs/') != -1) {
 			handleProjects(pathname, res);
+		} else if(pathname.indexOf('/webapps/') != -1) {
+			handleWebApps(pathname, res);
 		} else if(path.extname(pathname) == '.css' || path.extname(pathname) == '.html' || path.extname(pathname) == '.js') {
 			handleStaticPages(pathname, res);
 		} else {
