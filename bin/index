@@ -14,7 +14,5 @@ handle["/webdevelopment"] = requestHandlers.webdevelopment;
 handle["/pageproofs"] = requestHandlers.pageproofs;
 handle["/programs"] = requestHandlers.programs;
 handle["/webapps"] = requestHandlers.webapps;
-////////handle["/css/style.css"] = fs.readFile.....................
-
 
 server.serve(router.route, handle);

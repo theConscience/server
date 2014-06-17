@@ -44,6 +44,7 @@ function uploader( pathname, res, req ) {
 		'charset=UTF-8" />'+
 		'</head>'+
 		'<body>'+
+		'<div id="back" style="width:80px; height: 30px; background: red; position: fixed; top: 20px; left: 500px; text-align: center; line-height:0.8; padding-top: 8px;"><a href="/webdevelopment" style="display: block; width: 100%; height: 100%; cursor: pointer; font-size: 20px; text-decoration: none">back</a></div>'+
 		'<form action="/submtext" '+
 		'method="post"><fieldset><legend>Upload some text</legend>'+
 		'<textarea name="text" rows="20" cols="60"></textarea>'+
@@ -110,13 +111,36 @@ function webdevelopment( pathname, res, req ) {
 	});	
 }
 
-/*
+
 // раздел: web-разработка/вёрстка
-function pageproofs() {
+function pageproofs( pathname, res, req ) {
 	exec("", function(error, stdout, stderr){
 		console.log("Request handler 'pageproofs' was called.\n");
 		
-		var body =
+		var pageproofs = fs.readFileSync('pageproofs.html', {encoding: 'utf-8'}, function(err, data) {
+			if(err) {
+				console.error(err);
+				return err;
+			} else {
+				return data;
+			}
+		});
+		
+		var menu = fs.readFileSync('menu.html', {encoding: 'utf-8'}, function(err, data) {
+			if(err) {
+				console.error(err);
+				return err;
+			} else {
+				return data;
+			}
+		});
+
+		console.log(' pageproofs = ' + pageproofs +'\n');
+		console.log(' menu = ' + menu+'\n');
+
+		var body = ejs.render(template, {topmenu: menu, content: pageproofs });
+		
+		console.log('body = '+ body + " \n");
 
 		res.writeHead(200, {'Content-Type': 'text/html'});
 		res.write(body);
@@ -125,11 +149,34 @@ function pageproofs() {
 }
 
 // раздел: web-разработка/программы [JS]
-function programs() {
+function programs( pathname, res, req ) {
 	exec("", function(error, stdout, stderr){
 		console.log("Request handler 'programs' was called.\n");
 		
-		var body =
+		var programs = fs.readFileSync('programs.html', {encoding: 'utf-8'}, function(err, data) {
+			if(err) {
+				console.error(err);
+				return err;
+			} else {
+				return data;
+			}
+		});
+		
+		var menu = fs.readFileSync('menu.html', {encoding: 'utf-8'}, function(err, data) {
+			if(err) {
+				console.error(err);
+				return err;
+			} else {
+				return data;
+			}
+		});
+
+		console.log(' programs = ' + programs +'\n');
+		console.log(' menu = ' + menu+'\n');
+
+		var body = ejs.render(template, {topmenu: menu, content: programs });
+		
+		console.log('body = '+ body + " \n");
 
 		res.writeHead(200, {'Content-Type': 'text/html'});
 		res.write(body);
@@ -138,18 +185,41 @@ function programs() {
 }
 
 // раздел: web-разработка/приложения [Html+Css+JS]
-function webapps() {
+function webapps( pathname, res, req ) {
 	exec("", function(error, stdout, stderr){
 		console.log("Request handler 'webapps' was called.\n");
 		
-		var body =
+		var webapps = fs.readFileSync('webapps.html', {encoding: 'utf-8'}, function(err, data) {
+			if(err) {
+				console.error(err);
+				return err;
+			} else {
+				return data;
+			}
+		});
+		
+		var menu = fs.readFileSync('menu.html', {encoding: 'utf-8'}, function(err, data) {
+			if(err) {
+				console.error(err);
+				return err;
+			} else {
+				return data;
+			}
+		});
+
+		console.log(' webapps = ' + webapps +'\n');
+		console.log(' menu = ' + menu+'\n');
+
+		var body = ejs.render(template, {topmenu: menu, content: webapps });
+		
+		console.log('body = '+ body + " \n");
 
 		res.writeHead(200, {'Content-Type': 'text/html'});
 		res.write(body);
 		res.end();
 	});
 }
-*/
+
 
 //загрузка текста
 function submtext( pathname, res, req ) {
@@ -223,9 +293,9 @@ function gallery( pathname, res, req ) {
 
 exports.uploader = uploader;
 exports.webdevelopment = webdevelopment;
-//exports.pageproofs = pageproofs;
-//exports.programs = programs;
-//exports.webapps = webapps;
+exports.pageproofs = pageproofs;
+exports.programs = programs;
+exports.webapps = webapps;
 exports.submtext = submtext;
 exports.upload = upload;
 exports.gallery = gallery;
