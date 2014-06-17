@@ -60,6 +60,63 @@ function handleStaticPages(pathName, res) {
 
 /////////////////////////////////////////////////////
 
+function handleProjects(pathName, res) {
+	var ext = path.extname(pathName);
+    console.log('handleProjects function is working.... on ' + ext);
+	    switch(ext) {
+	        case '.css':
+	            res.writeHead(200, {"Content-Type": "text/css"});
+	            fs.readFile( './pageproofs/' + pathName.substr(pathName.indexOf('oofs/')+5), 'utf8', function(err, data) {
+	                if(err) {
+						console.error(err);
+						res.end(err);
+					} else {
+				        res.end(data);
+				    }
+	            });
+	            console.log('.css file of Project is routed\n');
+	        break;
+	        case '.js':
+	            res.writeHead(200, {"Content-Type": "text/javascript"});
+	            fs.readFile( './pageproofs/' + pathName.substr(pathName.indexOf('oofs/')+5), 'utf8', function(err, data) {
+	                if(err) {
+						console.error(err);
+						res.end(err);
+					} else {
+				        res.end(data);
+				    }
+	            });
+	            console.log('.js file of Project is routed\n');
+	        break;
+	        case '.html':
+	            res.writeHead(200, {"Content-Type": "text/html"});
+	            fs.readFile( './pageproofs/' + pathName.substr(pathName.indexOf('oofs/')+5), 'utf8', function(err, data) {
+	            	if(err) {
+						console.error(err);
+						res.end(err);
+					} else {
+				        res.end(data);
+				    }
+	            });
+	            console.log('.html file of Project is routed\n');
+	        break;
+	        case '.jpg':
+	            res.writeHead(200, {"Content-Type": "image/jpg"});
+	            fs.readFile( './pageproofs/' + pathName.substr(pathName.indexOf('oofs/')+5), 'binary', function(err, file) {
+	            	if(err) {
+						console.error(err);
+						res.end(err);
+					} else {
+						res.write(file, "binary");
+				        res.end();
+				    }
+	            });
+	            console.log('.jpg file of Project is routed\n');
+	        break;
+	    }
+}
+
+/////////////////////////////////////////////////////
 
 function serve(route, handle) {
 	function onRequest(req, res) {
@@ -80,7 +137,9 @@ function serve(route, handle) {
 			route(handle, pathname, res, postData);
 		});
 */
-		if(path.extname(pathname) == '.css' || path.extname(pathname) == '.html' || path.extname(pathname) == '.js') {
+		if(pathname.indexOf('/pageproofs/') != -1) {
+			handleProjects(pathname, res);
+		} else if(path.extname(pathname) == '.css' || path.extname(pathname) == '.html' || path.extname(pathname) == '.js') {
 			handleStaticPages(pathname, res);
 		} else {
 			route(handle, pathname, res, req);

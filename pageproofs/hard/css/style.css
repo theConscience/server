@@ -1,0 +1,227 @@
+@font-face 
+{
+    font-family: officina;
+    src: url(fonts/officina_serif.eot);
+    src: 
+		local("OfficinaSerifC"),
+		url(../fonts/officina_serif.otf),
+        url(../fonts/officina_serif.pfm),
+        url(../fonts/officina_serif.afm),
+        url(../fonts/officina_serif.pfb);
+        font-weight: 600;
+        font-style: normal;
+ }
+
+body {
+	color: black;
+	background: black;
+	padding-top: 10px;
+}
+ul {
+	list-style: none;
+}
+
+
+.wraper {
+	position: relative;
+	width: 976px;
+	min-height: 1047px;
+	border: 1px solid black;
+	overflow: hidden;
+	margin: 0 auto;
+	height: auto;
+	background: #ff4e6e url(../img/hard.jpg) 0 0 no-repeat; /* Old browsers */
+	/*background: -moz-linear-gradient(top, #ff4e6e 10%, #fe004e 54%); /* FF3.6+ */
+	/*background: -webkit-gradient(linear, left top, left bottom, color-stop(10%,#ff4e6e), color-stop(54%,#fe004e)); /* Chrome,Safari4+ */
+	/*background: -webkit-linear-gradient(top, #ff4e6e 10%,#fe004e 54%); /* Chrome10+,Safari5.1+ */
+	/*background: -o-linear-gradient(top, #ff4e6e 10%,#fe004e 54%); /* Opera 11.10+ */
+	/*background: -ms-linear-gradient(top, #ff4e6e 10%,#fe004e 54%); /* IE10+ */
+	/*background: linear-gradient(to bottom, #ff4e6e 10%,#fe004e 54%); /* W3C */
+	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff4e6e', endColorstr='#fe004e',GradientType=0 ); /* IE6-9 */
+
+}
+
+header {
+	width: 100%;
+	height: 350px;
+	background-color: ;olive;
+}
+
+section {
+	padding-top: 30px;
+	overflow: hidden;
+	background-color: ;navy;
+	padding-bottom: 132px;
+}
+
+.left_col {
+	width: 315px;
+	float: left;
+	background: ;deepskyblue;
+	text-align: left;
+}
+.invite {
+	width: 160px; height: 230px;
+	margin-left: 85px;
+	margin-top: -1px;
+}
+
+.invite h3 {
+	font: 18px tahoma;
+	padding-top: 0;
+	margin-top: 10px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+.invite p {
+	font: 11px tahoma;
+	padding-top: 0;
+	padding-bottom: 0;
+	margin-top: 6px;
+	margin-bottom: 0px;
+}
+.invite .button {
+	-webkit-box-sizing: border-box;
+ 	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	*behavior: url(/scripts/boxsizing.htc); /* Please make sure to check your server configuration and update it to use the correct content-type if needed. You can do this in a .htaccess file: `AddType text/x-component .htc`*/
+	width: 90px;
+	height: 20px;
+	font: 12px tahoma;
+	font-weight: bold;
+	line-height: 12px;
+	background: #FFEA00;
+	margin-top: 10px;
+	padding-top: 3px;
+	padding-left: 13px;
+}
+.invite .button:hover {
+	cursor: pointer;
+	box-shadow: 0 0 3px 2px #FFAF00;
+}
+
+.photo {
+	width: 131px; height: 131px;
+	background-color: black;
+	padding: 10px;
+}
+
+.photo img {
+	width: 100%;
+	height: 100%;
+}
+
+
+content {
+	width: 410px;
+	float: left;
+	background-color: ;grey;
+	margin-top: 0;
+}
+content p:first-child {
+	padding-top: 0;
+	margin-top: 0;
+}
+content p:last-child {
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+content p {
+	font: 14px georgia;
+	color: #D69489;
+}
+
+aside {
+	background-color: ;deepskyblue;
+	width: 251px;
+	float: left;
+}
+
+.menu, footer div h1 {
+	overflow:  visible;
+	font-family: officina;
+	font-size: 21px;
+	font-weight: 600;
+
+}
+
+.menu li {
+	position: absolute;
+	text-decoration: underline;
+	padding: 22px 9px 16px 10px;
+	margin: 0;
+}
+.menu li:hover {
+	color: #444;
+	cursor: pointer;
+}
+
+
+.menu li:nth-child(1) {
+	top: 56px;
+	left: 640px;
+}
+
+.menu li:nth-child(2) {
+	top: 175px;
+	left: 389px;
+	color: #FFAF00;
+}
+.menu li:nth-child(3) {
+	top: 202px;
+	left: 578px;
+
+}
+.menu li:nth-child(4) {
+	top: 264px;
+	left: 376px;
+
+}
+.menu li:nth-child(5) {
+	top: 316px;
+	left: 797px;
+
+}
+.menu li:nth-child(6) {
+	top: 383px;
+	left: 803px;
+
+}
+
+
+footer {
+	background-color: ;olive;
+}
+footer div {
+	float: left;
+	font: 11px Tahoma;
+	background-color: ;olive;
+}
+footer div:first-child {
+	margin-left: 273px;
+	width: 150px;
+}
+footer div:last-child {
+	margin-left:  190px;
+}
+
+footer div h1 {
+	padding-top: 0;
+	margin-top: 0;
+	padding-bottom: 0px;
+	margin-bottom: 10px;
+}
+footer div p {
+	padding-top: 0;
+	margin-top: 0;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+footer div p+p {
+	margin-top: 16px;
+}
+
+footer div p, footer div address {
+	color: white;
+}

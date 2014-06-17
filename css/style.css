@@ -21,13 +21,12 @@ a:hover {
 .header_wraper {
 	width: 100%;
 	height: 100px;
-	background: blue;
+	background: #444;
 }
 .header {
 	width: 610px;
 	height: 100%;
 	margin: auto;
-	background: navy;
 	position: relative;
 	padding: 0;
 }
@@ -79,13 +78,23 @@ a:hover {
 }
 .article {
 	width: 610px;
+	min-height: 600px;
 	margin: auto;
-	background: #cca;
+	background: #aaa;
+	padding-left: 10px;
+}
+.article h1 {
+	padding-left: 20px;
 }
 footer {
 	width: 100%;
-	height: 100px;
-	border: 1px solid #000;
-	background: blue;
+	height: 50px;
+	background: #444;
 	color: white;
+	padding-top: 5px;
+	padding-left: 10px;
+}
+footer p {
+	padding: 0;
+	margin: 0;
 }

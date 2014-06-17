@@ -80,7 +80,7 @@ function webdevelopment( pathname, res, req ) {
 
 		console.log("Request handler 'webdevelopment' was called.\n");
 		
-		var webdev = fs.readFileSync('webdev.html', {encoding: 'utf-8'}, function(err, data) {
+		var webdev = fs.readFileSync('./templates/webdev.html', {encoding: 'utf-8'}, function(err, data) {
 			if(err) {
 				console.error(err);
 				return err;
@@ -89,7 +89,7 @@ function webdevelopment( pathname, res, req ) {
 			}
 		});
 		
-		var menu = fs.readFileSync('menu.html', {encoding: 'utf-8'}, function(err, data) {
+		var menu = fs.readFileSync('./templates/menu.html', {encoding: 'utf-8'}, function(err, data) {
 			if(err) {
 				console.error(err);
 				return err;
@@ -117,7 +117,7 @@ function pageproofs( pathname, res, req ) {
 	exec("", function(error, stdout, stderr){
 		console.log("Request handler 'pageproofs' was called.\n");
 		
-		var pageproofs = fs.readFileSync('pageproofs.html', {encoding: 'utf-8'}, function(err, data) {
+		var pageproofs = fs.readFileSync('./templates/pageproofs.html', {encoding: 'utf-8'}, function(err, data) {
 			if(err) {
 				console.error(err);
 				return err;
@@ -126,7 +126,7 @@ function pageproofs( pathname, res, req ) {
 			}
 		});
 		
-		var menu = fs.readFileSync('menu.html', {encoding: 'utf-8'}, function(err, data) {
+		var menu = fs.readFileSync('./templates/menu.html', {encoding: 'utf-8'}, function(err, data) {
 			if(err) {
 				console.error(err);
 				return err;
@@ -153,7 +153,7 @@ function programs( pathname, res, req ) {
 	exec("", function(error, stdout, stderr){
 		console.log("Request handler 'programs' was called.\n");
 		
-		var programs = fs.readFileSync('programs.html', {encoding: 'utf-8'}, function(err, data) {
+		var programs = fs.readFileSync('./templates/programs.html', {encoding: 'utf-8'}, function(err, data) {
 			if(err) {
 				console.error(err);
 				return err;
@@ -162,7 +162,7 @@ function programs( pathname, res, req ) {
 			}
 		});
 		
-		var menu = fs.readFileSync('menu.html', {encoding: 'utf-8'}, function(err, data) {
+		var menu = fs.readFileSync('./templates/menu.html', {encoding: 'utf-8'}, function(err, data) {
 			if(err) {
 				console.error(err);
 				return err;
@@ -189,7 +189,7 @@ function webapps( pathname, res, req ) {
 	exec("", function(error, stdout, stderr){
 		console.log("Request handler 'webapps' was called.\n");
 		
-		var webapps = fs.readFileSync('webapps.html', {encoding: 'utf-8'}, function(err, data) {
+		var webapps = fs.readFileSync('./templates/webapps.html', {encoding: 'utf-8'}, function(err, data) {
 			if(err) {
 				console.error(err);
 				return err;
@@ -198,7 +198,7 @@ function webapps( pathname, res, req ) {
 			}
 		});
 		
-		var menu = fs.readFileSync('menu.html', {encoding: 'utf-8'}, function(err, data) {
+		var menu = fs.readFileSync('./templates/menu.html', {encoding: 'utf-8'}, function(err, data) {
 			if(err) {
 				console.error(err);
 				return err;
