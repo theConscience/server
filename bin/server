@@ -2,6 +2,8 @@
 
 var http = require('http'),
     urlroute = require('url'),
+    path = require('path'),
+    fs = require('fs'),
     port = 8080,
     numreq = 0,
     url = 'http://localhost:' + port + '/';
@@ -11,6 +13,52 @@ if(process.env.SUBDOMAIN){
   url = 'http://' + process.env.SUBDOMAIN + '.jit.su/';
 }
 
+////////////////////////////////////////////////////
+
+function handleStaticPages(pathName, res) {
+    var ext = path.extname(pathName);
+    var base = path.basename(pathName);
+    switch(ext) {
+        case '.css':
+            res.writeHead(200, {"Content-Type": "text/css"});
+            fs.readFile('./css/' + base, 'utf8', function(err, data) {
+                if(err) {
+					console.error(err);
+					res.end(err);
+				} else {
+			        res.end(data);
+			    }
+            });
+            console.log('Routed for Cascading Style Sheet '+ pathName +' Successfully\n');
+        break;
+        case '.js':
+            res.writeHead(200, {"Content-Type": "text/javascript"});
+            fs.readFile('./js/' + base, 'utf8', function(err, data) {
+                if(err) {
+					console.error(err);
+					res.end(err);
+				} else {
+			        res.end(data);
+			    }
+            });
+            console.log('Routed for Javascript '+ pathName +' Successfully\n');
+        break;
+        case '.html':
+            res.writeHead(200, {"Content-Type": "text/html"});
+            fs.readFile('./' + base, 'utf8', function(err, data) {
+            	if(err) {
+					console.error(err);
+					res.end(err);
+				} else {
+			        res.end(data);
+			    }
+            });
+            console.log('Routed for Hyper Text Markup Language '+ pathName +' Successfully\n');
+        break;
+    }
+}
+
+/////////////////////////////////////////////////////
 
 
 function serve(route, handle) {
@@ -32,7 +80,11 @@ function serve(route, handle) {
 			route(handle, pathname, res, postData);
 		});
 */
-		route(handle, pathname, res, req);
+		if(path.extname(pathname) == '.css' || path.extname(pathname) == '.html' || path.extname(pathname) == '.js') {
+			handleStaticPages(pathname, res);
+		} else {
+			route(handle, pathname, res, req);
+		}
 	}
 	
 	http.createServer(onRequest).listen(port);
