@@ -1,0 +1,155 @@
+html,body {
+	height: 100%;
+}
+body {
+
+}
+
+.wrap{
+	background: #000;
+	height: 100%;
+}
+
+header {
+	position: fixed;
+box-sizing: border-box;
+	background: #fff;
+	width: 100%; 
+	min-height: 20px ! important;
+	height: 13.2%; 
+}
+	/*//////////*/
+	ul.top_menu {
+		background: #99a;
+		width: 100%;
+		height: 50%;
+		margin: 0 auto;
+	}
+	ul.top_menu li {
+	box-sizing: border-box;
+		margin: 0 4px 4px 4px;	padding: 10px 10px 0 10px;
+	height: 100%;
+		display: inline-block;
+		border: 1px solid white;
+	}
+	/*//////////*/
+
+
+section {
+	width: 100%; height: 100%; min-width: 300px;
+	background: orange;
+}
+	/*//////////*/
+	.blank {
+		width: 100%; height: 13.2%;
+	}
+	.inputs {
+	box-sizing:border-box;
+		background: #fff;
+		width: 46.4%; height: 65.4%; min-height: 200px !important;
+		float:left;
+		padding: 1.9% 0 0 0;
+	}
+	.buttons {
+	box-sizing:border-box;
+		background: #fff;
+		width: 53.6%;height: 65.4%;
+		float:left;
+		padding: 1.9% 0 0 0.5%; min-height: 200px !important;
+	}
+	.footer {
+	box-sizing: border-box;
+		background: #fff;
+		width: 100%; height: 21.3%;
+		float:left;
+		padding: 1% 0 0 0;
+	}
+	/*//////////*/
+
+		/*//////////*/
+		.inputs form {
+			height:100%; width: 100%;
+		}
+		.inputs label {
+			padding: 0;
+			margin: 0;
+			background: white;
+			display: block;
+			width: 25.5%; height: 16%; min-height: 40px;
+			float: left;
+			margin-bottom: 3.6%;
+			margin-right:4%;
+			text-align: right;
+			position: relative;
+			font-size: 0.9em;
+		}
+		.inputs input[type='number'] {
+			padding: 0;
+			background: #FFFF99;
+			border: none;
+			width: 66.5%; height: 16%; min-height: 40px;
+			float: left;
+			margin-bottom: 3.6%;
+			margin-right:4%;
+			font-size: 2em;
+
+		}
+		.inputs input[type='number']::-webkit-inner-spin-button,
+		.inputs input[type='number']::-webkit-outer-spin-button {
+			-webkit-appearance: none;
+		    margin: 0;
+		}
+		/*//////////*/
+
+
+		/*//////////*/
+		.buttons div {
+		box-sizing: border-box;
+			background: #F2F2F2;
+			float: left;
+			width: 32%; height: 23.3%;
+			margin-bottom: 1.2%;
+			margin-right: 1.3%;
+			position: relative;
+			text-align: center;
+			color: #4E6174;
+			border: 1px solid #E4E4E4;
+		}
+		.buttons div:nth-child(1){
+			background: #008CCD;
+			color:white;
+			width: 49.2%; height: 18.1%;
+			margin-left: 0;
+			margin-right: 0;
+		}
+		.buttons div:nth-child(2){
+			background: #F2F2F2;
+			width: 49.3%; height: 18.1%;
+			margin-right: 1.5%;
+		}
+		/*//////////*/
+
+		/*//////////*/
+		.accept {
+			width: 100%; min-height: 100%;
+			background: #00B954;
+			color: white;
+			text-align: center;
+			position: relative;
+			font-size: 2em;
+		}
+		/*//////////*/
+
+
+/*  выравнивае текста в блоках */
+.buttons div span, .accept span, label span {
+	display: block;
+	position: absolute;
+	top: 40%;
+	left: 0%;
+	width: 100%;
+}
+.buttons div span span, .accept span span, label span span {
+	position: relative;
+	top: -50%;
+}

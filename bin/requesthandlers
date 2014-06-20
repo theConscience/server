@@ -89,7 +89,7 @@ function webdevelopment( pathname, res, req ) {
 			}
 		});
 		
-		var menu = fs.readFileSync('./templates/menu.html', {encoding: 'utf-8'}, function(err, data) {
+		var menu = fs.readFileSync('./templates/webdev_menu.html', {encoding: 'utf-8'}, function(err, data) {
 			if(err) {
 				console.error(err);
 				return err;
@@ -126,7 +126,7 @@ function pageproofs( pathname, res, req ) {
 			}
 		});
 		
-		var menu = fs.readFileSync('./templates/menu.html', {encoding: 'utf-8'}, function(err, data) {
+		var menu = fs.readFileSync('./templates/pageproofs_menu.html', {encoding: 'utf-8'}, function(err, data) {
 			if(err) {
 				console.error(err);
 				return err;
@@ -162,7 +162,7 @@ function programs( pathname, res, req ) {
 			}
 		});
 		
-		var menu = fs.readFileSync('./templates/menu.html', {encoding: 'utf-8'}, function(err, data) {
+		var menu = fs.readFileSync('./templates/programs_menu.html', {encoding: 'utf-8'}, function(err, data) {
 			if(err) {
 				console.error(err);
 				return err;
@@ -198,7 +198,7 @@ function webapps( pathname, res, req ) {
 			}
 		});
 		
-		var menu = fs.readFileSync('./templates/menu.html', {encoding: 'utf-8'}, function(err, data) {
+		var menu = fs.readFileSync('./templates/webapps_menu.html', {encoding: 'utf-8'}, function(err, data) {
 			if(err) {
 				console.error(err);
 				return err;
